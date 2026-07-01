@@ -55,9 +55,8 @@ function Blog() {
   return (
     <div className="pt-32">
 
-      {/* SEO HERO */}
+      {/* HERO */}
       <section className="bg-gradient-to-r from-red-600 to-red-700 py-24">
-
         <div className="max-w-7xl mx-auto px-6 text-center">
 
           <span className="inline-block bg-white/20 text-white px-5 py-2 rounded-full font-semibold text-sm mb-6">
@@ -74,13 +73,12 @@ function Blog() {
           </p>
 
         </div>
-
       </section>
 
       {/* BLOG CARDS */}
       <section className="max-w-7xl mx-auto px-6 py-24">
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
           {blogs.map((blog, index) => (
 
@@ -91,13 +89,14 @@ function Blog() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-white rounded-[30px] overflow-hidden border border-gray-100 shadow-lg hover:-translate-y-2 hover:shadow-2xl hover:border-red-500 transition-all duration-300"
+              className="group bg-white rounded-[30px] overflow-hidden border border-gray-100 shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
             >
 
               {/* IMAGE */}
               <img
                 src={blog.image}
                 alt={blog.title}
+                loading="lazy"
                 className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
               />
 
@@ -116,8 +115,8 @@ function Blog() {
                   {blog.description}
                 </p>
 
-                {/* HOVER CTA */}
-                <div className="mt-8 opacity-0 group-hover:opacity-100 transition duration-300">
+                {/* CTA (FIXED FOR MOBILE - NO OPACITY ISSUE) */}
+                <div className="mt-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300">
 
                   <span className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-5 py-3 rounded-full text-sm font-semibold">
                     💬 Click to Chat on WhatsApp →
@@ -132,12 +131,10 @@ function Blog() {
           ))}
 
         </div>
-
       </section>
 
       {/* CTA */}
       <section className="bg-red-600 py-24">
-
         <div className="max-w-4xl mx-auto text-center px-6">
 
           <h2 className="text-4xl font-bold text-white mb-6">
@@ -158,7 +155,6 @@ function Blog() {
           </a>
 
         </div>
-
       </section>
 
     </div>
