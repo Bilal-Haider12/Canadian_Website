@@ -27,7 +27,7 @@ const features = [
 
 function WhyChooseUs() {
   return (
-    <section className="py-8">
+    <section>
 
       {/* Heading */}
 

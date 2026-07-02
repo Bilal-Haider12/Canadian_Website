@@ -37,7 +37,7 @@ function ServicesSection() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="py-20">
+    <section>
 
       {/* SEO HEADING */}
       <div className="text-center mb-16">

@@ -25,7 +25,7 @@ function Counter({ end }) {
   return <span>{count}</span>;
 }
 
-export default function About() {
+function AboutSection() {
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: false,
@@ -38,26 +38,42 @@ export default function About() {
         <h2 className="text-4xl font-bold">
           About Canada Visa Experts
         </h2>
+
+        <p className="mt-6 text-gray-600 max-w-3xl mx-auto leading-8">
+          We help students, skilled workers, and families from Pakistan achieve
+          their dream of studying, working, and settling in Canada through
+          professional immigration guidance.
+        </p>
       </div>
 
-      <div ref={ref} className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-
+      <div
+        ref={ref}
+        className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+      >
         {[
-          { end: 10, label: "Years" },
-          { end: 5000, label: "Cases" },
-          { end: 98, label: "Success %" },
+          { end: 10, label: "Years Experience" },
+          { end: 5000, label: "Successful Cases" },
+          { end: 98, label: "Visa Success %" },
           { end: 24, label: "Support" },
         ].map((item, i) => (
-          <div key={i} className="p-6 bg-white shadow rounded-xl text-center">
+          <div
+            key={i}
+            className="bg-white rounded-2xl shadow-lg p-8 text-center"
+          >
             <h3 className="text-4xl font-bold text-red-600">
               {inView ? <Counter end={item.end} /> : 0}
+              {item.label === "Support" ? "/7" : "+"}
             </h3>
-            <p>{item.label}</p>
+
+            <p className="mt-3 text-gray-600">
+              {item.label}
+            </p>
           </div>
         ))}
-
       </div>
 
     </section>
   );
 }
+
+export default AboutSection;

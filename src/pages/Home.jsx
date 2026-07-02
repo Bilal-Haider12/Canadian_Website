@@ -5,9 +5,9 @@ import ServicesSection from "../components/ServicesSection";
 import WhyChooseUs from "../components/WhyChooseUs";
 import SectionAnimation from "../components/SectionAnimation";
 
-import Blog from "./Blog";
-import About from "./About";
-import Contact from "./Contact";
+import BlogSection from "../components/BlogSection";
+import ContactSection from "../components/ContactSection";
+import AboutSection from "../components/AboutSection";
 
 function Home() {
   return (
@@ -18,41 +18,46 @@ function Home() {
 
       <main className="overflow-x-hidden">
 
-        <section id="home" className="max-w-7xl mx-auto px-6 pt-32 pb-20">
-          <SectionAnimation>
-            <HeroSection />
-          </SectionAnimation>
-        </section>
+        {/* Main Container */}
+        <div className="max-w-7xl mx-auto px-6">
 
-        <section id="about" className="max-w-7xl mx-auto px-6 py-24">
-          <SectionAnimation>
-            <About />
-          </SectionAnimation>
-        </section>
+          <section id="home" className="pt-32 pb-20">
+            <SectionAnimation>
+              <HeroSection />
+            </SectionAnimation>
+          </section>
 
-        <section id="services" className="max-w-7xl mx-auto px-6 py-24">
-          <SectionAnimation>
-            <ServicesSection />
-          </SectionAnimation>
-        </section>
+          <section id="about" className="py-24">
+            <SectionAnimation>
+              <AboutSection/>
+            </SectionAnimation>
+          </section>
 
-        <section id="whychoose" className="max-w-7xl mx-auto px-6 py-24">
-          <SectionAnimation>
-            <WhyChooseUs />
-          </SectionAnimation>
-        </section>
+          <section id="services" className="py-24">
+            <SectionAnimation>
+              <ServicesSection />
+            </SectionAnimation>
+          </section>
 
-        <section id="blog" className="max-w-7xl mx-auto px-6 py-24">
-          <SectionAnimation>
-            <Blog />
-          </SectionAnimation>
-        </section>
+          <section id="whychoose" className="py-24">
+            <SectionAnimation>
+              <WhyChooseUs />
+            </SectionAnimation>
+          </section>
 
-        <section id="contact" className="max-w-7xl mx-auto px-6 py-24">
-          <SectionAnimation>
-            <Contact />
-          </SectionAnimation>
-        </section>
+          <section id="blog" className="py-24">
+            <SectionAnimation>
+              <BlogSection />
+            </SectionAnimation>
+          </section>
+
+          <section id="contact" className="py-24">
+            <SectionAnimation>
+             <ContactSection />
+            </SectionAnimation>
+          </section>
+
+        </div>
 
       </main>
     </>
