@@ -6,24 +6,50 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaArrowUp,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaGraduationCap,
+  FaBriefcase,
+  FaHome,
+  FaUsers,
+  FaPlaneDeparture,
 } from "react-icons/fa";
+import { GiMapleLeaf } from "react-icons/gi";
 
 function Footer() {
   const quickLinks = [
     { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
+    { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Blog", href: "#blog" },
     { name: "Contact", href: "#contact" },
   ];
 
   const services = [
-    "Study Visa",
-    "Work Permit",
-    "Visit Visa",
-    "Express Entry",
-    "Permanent Residency",
-    "Family Sponsorship",
+    {
+      icon: <FaGraduationCap />,
+      name: "Study Visa",
+    },
+    {
+      icon: <FaBriefcase />,
+      name: "Work Permit",
+    },
+    {
+      icon: <FaPlaneDeparture />,
+      name: "Visit Visa",
+    },
+    {
+      icon: <GiMapleLeaf />,
+      name: "Express Entry",
+    },
+    {
+      icon: <FaHome />,
+      name: "Permanent Residency",
+    },
+    {
+      icon: <FaUsers />,
+      name: "Family Sponsorship",
+    },
   ];
 
   const scrollToTop = () => {
@@ -34,36 +60,56 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-gray-950 text-white mt-24">
+    <footer className="relative mt-24 overflow-hidden bg-gray-950 text-white">
 
-      {/* Main Footer */}
+      {/* Background */}
 
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-red-600/10 blur-3xl"></div>
 
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+      <div className="absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-red-600/10 blur-3xl"></div>
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-16 lg:py-20">
+
+        <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
 
           {/* Company */}
 
           <div>
 
-            <h2 className="text-3xl font-extrabold mb-6">
-              <span className="text-red-500">Canada</span> Visa Experts
-            </h2>
+            <div className="flex items-center gap-3">
 
-            <p className="text-gray-400 leading-8 mb-8">
-              Trusted immigration consultants helping students,
-              professionals and families achieve their Canadian
-              immigration goals through expert guidance and
-              transparent processes.
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-2xl">
+                <GiMapleLeaf />
+              </div>
+
+              <div>
+
+                <h2 className="text-2xl font-extrabold">
+                  Canada Visa Experts
+                </h2>
+
+                <p className="text-sm text-gray-400">
+                  Immigration Consultants
+                </p>
+
+              </div>
+
+            </div>
+
+            <p className="mt-6 leading-8 text-gray-400">
+              We help students, skilled workers and families achieve
+              their dream of studying, working and permanently settling
+              in Canada through professional immigration guidance.
             </p>
 
             <a
               href="https://wa.me/923001234567"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl font-semibold transition duration-300"
+              className="mt-8 inline-flex items-center gap-3 rounded-full bg-green-600 px-6 py-3 font-semibold transition hover:bg-green-700"
             >
               <FaWhatsapp />
+
               Free Consultation
             </a>
 
@@ -73,7 +119,7 @@ function Footer() {
 
           <div>
 
-            <h3 className="text-xl font-bold mb-6">
+            <h3 className="mb-6 text-xl font-bold">
               Quick Links
             </h3>
 
@@ -85,7 +131,7 @@ function Footer() {
 
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-red-500 transition duration-300"
+                    className="text-gray-400 transition hover:text-red-500"
                   >
                     {link.name}
                   </a>
@@ -102,7 +148,7 @@ function Footer() {
 
           <div>
 
-            <h3 className="text-xl font-bold mb-6">
+            <h3 className="mb-6 text-xl font-bold">
               Our Services
             </h3>
 
@@ -113,14 +159,20 @@ function Footer() {
                 <li key={index}>
 
                   <a
-                    href={`https://wa.me/923001234567?text=Hi,%20I%20need%20information%20about%20${encodeURIComponent(
-                      service
+                    href={`https://wa.me/923001234567?text=Hi%20I%20need%20information%20about%20${encodeURIComponent(
+                      service.name
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-red-500 transition duration-300"
+                    className="flex items-center gap-3 text-gray-400 transition hover:text-red-500"
                   >
-                    {service}
+
+                    <span className="text-red-500">
+                      {service.icon}
+                    </span>
+
+                    {service.name}
+
                   </a>
 
                 </li>
@@ -130,10 +182,11 @@ function Footer() {
             </ul>
 
           </div>
+                    {/* Contact */}
 
-                   <div>
+          <div>
 
-            <h3 className="text-xl font-bold mb-6">
+            <h3 className="mb-6 text-xl font-bold">
               Contact Us
             </h3>
 
@@ -143,48 +196,85 @@ function Footer() {
                 href="https://wa.me/923001234567"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-gray-400 hover:text-green-500 transition duration-300"
+                className="flex items-start gap-4 text-gray-400 transition hover:text-green-500"
               >
-                <FaWhatsapp className="text-xl" />
-                <span>WhatsApp Support</span>
+
+                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-green-600 text-white">
+                  <FaWhatsapp />
+                </div>
+
+                <div>
+
+                  <p className="font-semibold text-white">
+                    WhatsApp
+                  </p>
+
+                  <p className="text-sm">
+                    +92 300 1234567
+                  </p>
+
+                </div>
+
               </a>
 
               <a
                 href="mailto:support@visaagency.com"
-                className="flex items-center gap-3 text-gray-400 hover:text-red-500 transition duration-300"
+                className="flex items-start gap-4 text-gray-400 transition hover:text-red-500"
               >
-                <FaEnvelope className="text-xl" />
-                <span>support@visaagency.com</span>
+
+                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-red-600 text-white">
+                  <FaEnvelope />
+                </div>
+
+                <div>
+
+                  <p className="font-semibold text-white">
+                    Email
+                  </p>
+
+                  <p className="text-sm break-all">
+                    support@visaagency.com
+                  </p>
+
+                </div>
+
               </a>
 
-              <div className="pt-6">
+              <div className="flex items-start gap-4">
 
-                <h4 className="font-semibold mb-4 text-white">
-                  Follow Us
-                </h4>
+                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
+                  <FaMapMarkerAlt />
+                </div>
 
-                <div className="flex gap-4">
+                <div>
 
-                  <a
-                    href="#"
-                    className="w-11 h-11 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition duration-300 hover:scale-110"
-                  >
-                    <FaFacebookF />
-                  </a>
+                  <p className="font-semibold text-white">
+                    Office
+                  </p>
 
-                  <a
-                    href="#"
-                    className="w-11 h-11 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition duration-300 hover:scale-110"
-                  >
-                    <FaInstagram />
-                  </a>
+                  <p className="text-sm text-gray-400">
+                    Lahore, Punjab, Pakistan
+                  </p>
 
-                  <a
-                    href="#"
-                    className="w-11 h-11 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition duration-300 hover:scale-110"
-                  >
-                    <FaLinkedinIn />
-                  </a>
+                </div>
+
+              </div>
+
+              <div className="flex items-start gap-4">
+
+                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 text-white">
+                  <FaPhoneAlt />
+                </div>
+
+                <div>
+
+                  <p className="font-semibold text-white">
+                    Phone
+                  </p>
+
+                  <p className="text-sm text-gray-400">
+                    +92 300 1234567
+                  </p>
 
                 </div>
 
@@ -192,6 +282,83 @@ function Footer() {
 
             </div>
 
+            {/* Social Media */}
+
+            <div className="mt-8">
+
+              <h4 className="mb-4 font-semibold">
+                Follow Us
+              </h4>
+
+              <div className="flex gap-4">
+
+                <a
+                  href="#"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 transition duration-300 hover:bg-red-600 hover:scale-110"
+                >
+                  <FaFacebookF />
+                </a>
+
+                <a
+                  href="#"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 transition duration-300 hover:bg-red-600 hover:scale-110"
+                >
+                  <FaInstagram />
+                </a>
+
+                <a
+                  href="#"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 transition duration-300 hover:bg-red-600 hover:scale-110"
+                >
+                  <FaLinkedinIn />
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Trust Badges */}
+
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div className="rounded-2xl border border-gray-800 bg-gray-900 p-5 text-center">
+            <p className="text-2xl font-bold text-red-500">
+              500+
+            </p>
+            <p className="mt-2 text-gray-400">
+              Successful Cases
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-800 bg-gray-900 p-5 text-center">
+            <p className="text-2xl font-bold text-red-500">
+              98%
+            </p>
+            <p className="mt-2 text-gray-400">
+              Visa Success Rate
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-800 bg-gray-900 p-5 text-center">
+            <p className="text-2xl font-bold text-red-500">
+              24/7
+            </p>
+            <p className="mt-2 text-gray-400">
+              Customer Support
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-800 bg-gray-900 p-5 text-center">
+            <p className="text-2xl font-bold text-red-500">
+              🇨🇦
+            </p>
+            <p className="mt-2 text-gray-400">
+              Trusted Immigration Experts
+            </p>
           </div>
 
         </div>
@@ -202,17 +369,36 @@ function Footer() {
 
       <div className="border-t border-gray-800">
 
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-center sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
 
-          <p className="text-gray-500 text-center md:text-left">
+          <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} Canada Visa Experts. All Rights Reserved.
           </p>
 
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
+
+            <a
+              href="#"
+              className="text-gray-500 transition hover:text-white"
+            >
+              Privacy Policy
+            </a>
+
+            <a
+              href="#"
+              className="text-gray-500 transition hover:text-white"
+            >
+              Terms & Conditions
+            </a>
+
+          </div>
+
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 bg-red-600 hover:bg-red-700 px-5 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 shadow-lg"
+            className="mx-auto flex items-center gap-2 rounded-full bg-red-600 px-5 py-3 font-semibold transition hover:-translate-y-1 hover:bg-red-700 md:mx-0"
           >
-            <FaArrowUp className="group-hover:-translate-y-1 transition-transform duration-300" />
+            <FaArrowUp />
+
             Back to Top
           </button>
 
@@ -220,7 +406,7 @@ function Footer() {
 
       </div>
 
-    </footer>
+          </footer>
   );
 }
 
