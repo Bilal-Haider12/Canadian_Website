@@ -26,11 +26,9 @@ export default function HeroSection() {
 
         <div>
 
-
           <span className="inline-flex items-center rounded-full bg-red-100 px-4 py-2 text-sm font-semibold tracking-wide text-red-600">
             🇨🇦 Canada Immigration Experts
           </span>
-
 
 
           <h1 className="mt-6 text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
@@ -44,7 +42,6 @@ export default function HeroSection() {
           </h1>
 
 
-
           <p className="mt-6 max-w-xl text-lg leading-8 text-gray-600">
 
             We help students, skilled professionals, workers and families
@@ -53,7 +50,6 @@ export default function HeroSection() {
             applications.
 
           </p>
-
 
 
           {/* Trust Statistics */}
@@ -87,10 +83,10 @@ export default function HeroSection() {
 
             ))}
 
-
           </div>
-          
-          {/* Call To Action Buttons */}
+
+
+          {/* CTA Buttons */}
 
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
 
@@ -105,7 +101,6 @@ export default function HeroSection() {
             >
               Free Assessment
             </a>
-
 
 
             <a
@@ -127,28 +122,24 @@ export default function HeroSection() {
 
 
 
-
-
-        {/* Hero Image Section */}
-
+        {/* Hero Image */}
 
         <div
           className="relative flex justify-center"
           aria-label="Canada immigration consultant illustration"
         >
 
-
           <img
             src={heroImage}
-            alt="Canada immigration consultant helping students and professionals with study visas, work permits and permanent residence"
+            alt="Canada immigration consultant helping students and professionals with visas and permanent residence"
             width="600"
             height="600"
             loading="eager"
-            decoding="async"
             fetchPriority="high"
+            decoding="async"
+            sizes="(max-width: 768px) 100vw, 600px"
             className="w-full max-w-md object-contain sm:max-w-lg lg:max-w-xl"
           />
-
 
 
           {/* Success Card */}
@@ -170,7 +161,6 @@ export default function HeroSection() {
 
 
 
-
           {/* Clients Card */}
 
           <div
@@ -187,13 +177,10 @@ export default function HeroSection() {
               500+
             </p>
 
-
           </div>
 
 
-
         </div>
-
 
 
       </div>
